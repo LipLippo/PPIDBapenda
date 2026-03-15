@@ -1,0 +1,300 @@
+
+header{
+	padding-top: 38px;
+	address{
+		font-size: 1.25em;
+		color: @warna-hitam-gelap;
+		text-shadow: 0 1px 5px rgba(255, 255, 255, 0.5);
+	}
+}
+
+.skew(@deg){
+	-webkit-transform: skew(@deg);
+	   -moz-transform: skew(@deg);
+	    -ms-transform: skew(@deg);
+	     -o-transform: skew(@deg);
+	        transform: skew(@deg);
+}
+
+main{
+	min-height: 800px;
+}
+
+#logo{
+	position: relative;
+	.clearfix();
+	margin-bottom: 25px;
+}
+#logo-gambar{
+	float: left;
+	margin: 15px;
+}
+#logo-teks{
+	float: left;
+	h1,h2{
+		line-height: 1em;
+		margin: 15px 0;
+	}
+}
+
+// Menu Utama
+#menu-utama{
+	margin-bottom: 40px;
+}
+// Eof Menu Utama
+
+// Breadcrumbs
+.breadcrumb > li + li:before{
+	display: none;
+}
+.breadcrumb{
+	padding-top: 0;
+	padding-bottom: 0;
+	li{
+		a, >span{
+			display: inline-block;
+			vertical-align: top;
+			zoom: 1; /* Fix for IE7 */
+			*display: inline; /* Fix for IE7 */
+			padding: .62em;
+		}
+	}
+}
+// Eof Breadcrumbs
+
+
+// SECTION
+section{
+	margin-bottom: 2em;
+}
+.section-header{
+	position: relative;
+	background-position: 0 0;
+	background-repeat: no-repeat;
+	background-color: @gray-lighter;
+	border-radius: 10px;
+	margin-top: 0;
+	margin-bottom: 1.6em;
+	padding-left: 1em;
+	padding-right: 1em;
+	padding-top: .8em;
+	padding-bottom: .8em;
+	line-height: 1.5em;
+	font-size: 15px;
+	font-weight: 700;
+	text-transform: uppercase;
+	
+	.indeks{
+		text-transform: lowercase;
+		font-weight: 400;
+	}
+}
+// Eof SECTION
+
+// BERITA
+.item-berita{
+	.clearfix();
+	margin-bottom: .6em;
+	width: 100%;
+	img{
+		width: 100%;
+		margin-bottom: 1em;
+	}
+	.judul-berita{
+		margin: 0;
+		line-height: 1.3em;
+		font-size: 1em;
+		font-weight: 700;
+	}
+
+	&.img-left{
+		img{
+			width: 68px;
+			float: left;
+			margin-right: 15px;
+		}
+		.gambar{
+			float: left;
+			margin-right: 15px;
+		}
+		.berita-teks{
+			float: left;
+			width: 70%;
+		}
+	}
+}
+.meta{
+	color: #898989;
+	margin: .6em 0;
+	font-size: 11px;
+	line-height: 1em;
+	font-weight: 400;
+}
+.gambar{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: @brand-primary;
+	width: 100%;
+	height: 276px;
+	margin-bottom: .6em;
+	display: block;
+	&.kegiatan{
+		width: 69px;
+		height: 69px;
+	}
+	.list-article .list-group-item &{
+		width: 84px;
+		height: 53px;
+		float: left;
+		margin-right: 10px;
+		margin-bottom: 0;
+	}
+}
+// Eof BERITA
+
+// Artikel
+.list-article{
+	.article-title{
+		padding: 0;
+	}
+}
+// Halaman daftar artikel
+.daftar-artikel{
+	padding: 15px;
+	background-color: white;
+	border-radius: 4px;
+	article{
+		padding-bottom: 15px;
+		border-bottom: 1px solid #ddd;
+	}
+	.gambar{
+		height: 142px;
+		margin-top: 20px;
+	}
+	.judul-artikel{
+		font-size: 18px;
+		font-weight: 700;
+		line-height: 1.1em;
+	}
+	.meta{
+		color: #6B92BD;
+	}
+}
+// Halaman Detail Artikel
+#article-detail{
+	background-color: white;
+	border-radius: 4px;
+	padding: 15px;
+}
+// Eof Artikel
+
+
+// MEDIA GALERI
+#media{
+	background-color: @brand-primary;
+}
+.galeri-item{
+	figcaption{
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 1.3em;
+		text-align: center;
+	}
+	margin-bottom: 1em;
+}
+.galeri-samping{
+	.judul-gambar{
+		font-size: 1em;
+		font-weight: 700;
+		margin-top: 0;
+		margin-bottom: 1.2em;
+	}
+	.gambar{
+		position: relative;
+		z-index: 0;
+		height: 128px;
+		.daftar-album & {
+			height: 185px;
+		}
+	}
+	margin-bottom: 1em;
+}
+.panel.galeri{
+	.gambar{
+		height: 100px;
+	}
+	.judul-gambar{
+		font-size: 12px;
+		text-align: center;
+		margin: 0;
+		line-height: 1em;
+	}
+}
+.media-video, .galeri-samping{
+	position: relative;
+	figcaption{
+		position: absolute;
+		background-color: rgba(56, 56, 67, 0.5);
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 1;
+		.judul-gambar{
+			margin: 0;
+			padding: .6em 1em;
+			a{
+				color: white;
+				&:hover{
+					color: @warna-kuning;
+				}
+			}
+		}
+	}
+}
+// Eof MEDIA GALERI
+
+// Panel epaper
+.panel-epaper{
+	.thumbnail{
+		text-align: center;
+		border: none;
+		padding: 0;
+	}
+}
+// Eof Panel epaper
+
+// Panel
+.panel{
+	.list-article{
+		.list-group-item-heading{
+			font-size: 1em;
+			font-weight: 700;
+		}
+	}
+	.indeks{
+		position: relative;
+		z-index: 2;
+		font-size: 1em;
+		text-transform: lowercase;
+		font-family: sans-serif;
+		font-weight: 700;
+		line-height: 1.6em;
+	}
+	.panel-heading{
+		position: relative;
+		overflow: hidden;
+		&:after{
+			content:'';
+			position: absolute;
+			right: -9px;
+			top: 0;
+			bottom: 0;
+			z-index: 1;
+			background-color: rgba(0, 0, 0, 0.16);
+			width: 61px;
+			.skew(-20deg);
+		}
+	}
+}
+// Eof Panel

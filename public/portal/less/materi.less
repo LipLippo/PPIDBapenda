@@ -1,0 +1,88 @@
+
+// THEME METERI STYLE
+
+
+// DISPLAY MATERI
+.waktu-upload{
+	font-size: 10px;
+	font-weight: 400;
+	color: white;
+}
+.materi{
+	&-item{
+		position: relative;
+		margin-bottom: 1.6em;
+		width: 100%;
+		height: 277px;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		&.first{
+			.materi-judul{
+				font-size: 25px;
+			}
+		}
+		&.tipe-2{
+			img{
+				margin-bottom: 1em;
+			}
+			&.first{
+				.materi-judul{
+					font-size: 25px;
+				}
+			}	
+			.materi-judul{
+				font-size: 21px;
+			}
+		}
+		&.agenda{
+			font-size: 1.2em;
+			.waktu-upload{
+				margin-bottom: 0;
+			}
+			.materi-judul{
+				margin-top: .6em;
+			}
+		}
+		figcaption{
+			background-color: fade(@warna-hitam, 60%);
+			padding: 10px;
+			position: absolute;
+			bottom: 0;
+		}
+	}
+	&-gambar{
+		position: relative;
+		width: 100%;
+	}
+	&-judul{
+		font-size: 1em;
+		line-height: 1.5em;
+		font-weight: 400;
+		font-family: @font-family-serif;
+		margin-top: 0;
+		margin-bottom: .5em;
+		a{
+			color: white;
+			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+			&:hover{
+				color: @warna-kuning;
+			}
+		}
+	}
+	&-kontributor, &-kategori{
+		display: inline-block;
+		font-size: 10px;
+		font-weight: 400;
+		margin-bottom: .62em;
+		.fa{
+			margin-right: .3em;
+		}
+	}
+	&-kategori{
+		color: white;
+	}
+}
+// Eof DISPLAY MATERI
+
+

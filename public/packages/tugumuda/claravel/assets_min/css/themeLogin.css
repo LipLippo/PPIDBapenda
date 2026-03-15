@@ -1,0 +1,22 @@
+#login{
+	background-color: #162441;
+}
+
+#login #identitas {
+	background-color: #3d7ebb;
+}
+#login #judul{
+	color: #f1c928;
+}
+#login .deskripsi {
+	color: white;
+}
+#login .copyright {
+  color: #7ba9d4;
+}
+/*#login .copyright a {
+  color: #56799e;
+}*/
+#login .copyright a:hover {
+  color: #f1c928;
+}
