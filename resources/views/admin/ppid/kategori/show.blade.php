@@ -214,17 +214,17 @@
             <table class="table table-hover mb-0" style="table-layout: fixed; width: 100%;">
                 <colgroup>
                     <col style="width: 5%;">
-                    <col style="width: 20%;">
-                    <col style="width: 40%;">
-                    <col style="width: 12%;">
-                    <col style="width: 23%;">
+                    <col style="width: 27%;">
+                    <col style="width: 45%;">
+                    <col style="width: 7%;">
+                    <col style="width: 15%;">
                 </colgroup>
                 <thead class="thead-light">
                     <tr>
                         <th class="text-center">#</th>
                         <th>Sub Kategori</th>
                         <th>Judul Isi</th>
-                        <th class="text-center">Link</th>
+                        <th>Link</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
