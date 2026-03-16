@@ -86,7 +86,7 @@
     @endif
 
     <!-- partial -->
-    <!-- SESUDAH — hanya tampil di halaman /ppid_bapenda saja -->
+    SESUDAH — hanya tampil di halaman /ppid_bapenda saja
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 @if (Request::is('ppid_bapenda'))
 <script>
