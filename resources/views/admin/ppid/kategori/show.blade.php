@@ -252,6 +252,11 @@
                     <col class="col-judul">
                     <col class="col-link">
                     <col class="col-aksi">
+                    <col style="width: 5%;">
+                    <col style="width: 27%;">
+                    <col style="width: 45%;">
+                    <col style="width: 7%;">
+                    <col style="width: 15%;">
                 </colgroup>
                 <thead class="thead-light">
                     <tr>
@@ -260,6 +265,11 @@
                         <th class="col-judul">Judul Isi</th>
                         <th class="col-link text-center">Link</th>
                         <th class="col-aksi">Aksi</th>
+                        <th class="text-center">#</th>
+                        <th>Sub Kategori</th>
+                        <th>Judul Isi</th>
+                        <th>Link</th>
+                        <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
