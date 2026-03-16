@@ -124,14 +124,14 @@
                     <div class="ppid-card-desc">Informasi yang tidak dapat dipublikasikan</div>
                 </a>
 
-                <a href="{{ url('ppid_bapenda/pengadaan-barang-jasa') }}" class="ppid-card">
-                    <div class="ppid-card-icon">
+                <!--<a href="{{ url('ppid_bapenda/pengadaan-barang-jasa') }}" class="ppid-card">
+                     <div class="ppid-card-icon"> 
                         <i class="fa fa-bullhorn"></i>
                     </div>
                     <div class="ppid-card-title">Pengadaan Barang/Jasa</div>
                     <div class="ppid-card-desc">Informasi pengadaan barang dan jasa</div>
                 </a>
-            </div>
+            </div>-->
         </div>
         {{-- ===== END BUTTON KATEGORI ===== --}}
         

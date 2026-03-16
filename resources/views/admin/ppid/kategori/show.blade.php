@@ -26,6 +26,37 @@
         background-color: #6c757d;
         color: #fff !important;
     }
+
+    /* ===== Tabel: kolom tidak boleh meluber ===== */
+    .table-fixed {
+        table-layout: auto;   /* biarkan browser hitung lebar secara natural */
+        width: 100%;
+    }
+    .table-fixed td,
+    .table-fixed th {
+        vertical-align: middle !important;
+    }
+    /* kolom # */
+    .col-no   { width: 4%;  white-space: nowrap; }
+    /* kolom Sub Kategori & Judul Isi: wrap agar terbaca */
+    .col-sub,
+    .col-judul {
+        white-space: normal !important;
+        word-break: break-word;
+    }
+    /* kolom Link: lebar minimal cukup untuk tombol "Buka" satu baris */
+    .col-link {
+        white-space: nowrap;
+        width: 100px;        /* lebar tetap, cukup untuk tombol Buka */
+        text-align: center;
+    }
+    /* kolom Aksi: lebar minimal cukup untuk tombol Edit + Hapus */
+    .col-aksi {
+        white-space: nowrap;
+        text-align: right;
+        width: 200px;        /* lebar tetap, cukup untuk Edit + Hapus */
+    }
+
     /* ===== Select2 Custom Styling ===== */
     .select2-container { width: 100% !important; }
     .select2-container--default .select2-selection--single {
@@ -163,6 +194,8 @@
             {{ $kategori->nama_kategori }}
             <span class="badge badge-primary ml-2">{{ $kontens->total() }} Dokumen</span>
         </div>
+
+        {{-- Filter Bar --}}
         <div class="px-3 py-2 border-bottom bg-light">
             <form method="GET"
                 action="{{ route('admin.ppid.kategori.show', $kategori) }}"
@@ -210,39 +243,50 @@
                 </div>
             </form>
         </div>
+
         <div class="card-body p-0">
-            <table class="table table-hover mb-0" style="table-layout: fixed; width: 100%;">
+            <table class="table table-hover mb-0 table-fixed">
                 <colgroup>
-                    <col style="width: 5%;">
-                    <col style="width: 20%;">
-                    <col style="width: 40%;">
-                    <col style="width: 12%;">
-                    <col style="width: 23%;">
+                    <col class="col-no">
+                    <col class="col-sub">
+                    <col class="col-judul">
+                    <col class="col-link">
+                    <col class="col-aksi">
                 </colgroup>
                 <thead class="thead-light">
                     <tr>
-                        <th class="text-center">#</th>
-                        <th>Sub Kategori</th>
-                        <th>Judul Isi</th>
-                        <th class="text-center">Link</th>
-                        <th class="text-center">Aksi</th>
+                        <th class="col-no text-center">#</th>
+                        <th class="col-sub">Sub Kategori</th>
+                        <th class="col-judul">Judul Isi</th>
+                        <th class="col-link text-center">Link</th>
+                        <th class="col-aksi">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($kontens as $i => $konten)
                     <tr>
-                        <td>{{ $kontens->firstItem() + $i }}</td>
-                        <td>{{ $konten->subKategori->nama_sub_kategori ?? '-' }}</td>
-                        <td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 0;">
+                        {{-- Nomor --}}
+                        <td class="col-no text-center">{{ $kontens->firstItem() + $i }}</td>
+
+                        {{-- Sub Kategori: wrap agar terbaca --}}
+                        <td class="col-sub" title="{{ $konten->subKategori->nama_sub_kategori ?? '-' }}">
+                            {{ $konten->subKategori->nama_sub_kategori ?? '-' }}
+                        </td>
+
+                        {{-- Judul Isi: wrap agar terbaca --}}
+                        <td class="col-judul" title="{{ $konten->judul_isi }}">
                             {{ $konten->judul_isi }}
                         </td>
-                        <td>
+
+                        {{-- Link --}}
+                        <td class="col-link text-center">
                             <a class="btn btn-success btn-sm" href="{{ $konten->link }}" target="_blank" role="button">
                                 <i class="fas fa-external-link-alt mr-1"></i> Buka
                             </a>
                         </td>
-                        <td class="text-center">
-                            {{-- Tombol Edit → buka modal --}}
+
+                        {{-- Aksi --}}
+                        <td class="col-aksi">
                             <button type="button"
                                     class="btn btn-primary btn-sm"
                                     data-toggle="modal"
@@ -271,6 +315,7 @@
                 </tbody>
             </table>
         </div>
+
         <div class="card-footer d-flex justify-content-between align-items-center">
             <small class="text-muted">
                 @if($kontens->total() > 0)
@@ -376,7 +421,6 @@
         <form action="{{ route('admin.ppid.kategori.konten.update', [$kategori, $konten]) }}" method="POST">
             @csrf
             @method('PUT')
-            {{-- penanda modal mana yang submit --}}
             <input type="hidden" name="edit_konten_id" value="{{ $konten->id }}">
             <div class="modal-content">
                 <div class="modal-header">
@@ -389,7 +433,6 @@
                 </div>
                 <div class="modal-body">
 
-                    {{-- Error hanya tampil di modal yang baru submit --}}
                     @if(old('edit_konten_id') == $konten->id && $errors->has('sub_kategori_baru'))
                         <div class="alert alert-warning py-2">
                             <i class="fas fa-exclamation-triangle mr-1"></i> {{ $errors->first('sub_kategori_baru') }}

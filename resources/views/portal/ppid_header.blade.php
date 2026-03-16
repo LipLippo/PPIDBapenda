@@ -86,13 +86,15 @@
     @endif
 
     <!-- partial -->
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script>
-        $(document).ready(function() {
-            $('#global-modal').modal('show');
-        });
-    </script>
-
+    <!-- SESUDAH — hanya tampil di halaman /ppid_bapenda saja -->
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+@if (Request::is('ppid_bapenda'))
+<script>
+    $(document).ready(function() {
+        $('#global-modal').modal('show');
+    });
+</script>
+@endif
     <!-- ======= Top Bar ======= -->
 
     <div id="topbar" class="d-flex align-items-center fixed-top">
