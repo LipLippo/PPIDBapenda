@@ -34,14 +34,14 @@
         @endif
 
         {{-- ===== BUTTON KATEGORI INFORMASI ===== --}}
-        <div class="col-xs-12" style="margin: 20px 0 20px 0;">   {{-- mengatur ketinggian box --}}
+        <div class="col-xs-12" style="margin: 20px 0 20px 0;">
             <style>
                 .ppid-card-grid {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 20px;                               
+                    gap: 20px;
                     justify-content: center;
-                    padding: 10px 0 20px 0;                 
+                    padding: 10px 0 20px 0;
                 }
                 .ppid-card {
                     background: #ffffff;
@@ -93,52 +93,44 @@
                 }
             </style>
 
-            <!-- INFORMASI BERKALA -->
+            <?php
+                // Ambil kategori dari database, hanya yang is_active = 1
+                $kategoris = DB::table('ppid_kategori')
+                    ->where('is_active', 1)
+                    ->orderBy('id', 'asc')
+                    ->get();
+
+                // Mapping slug ke icon Font Awesome
+                $icons = [
+                    'informasi-berkala'      => 'fa-list-alt',
+                    'informasi-setiap-saat'  => 'fa-calendar',
+                    'informasi-serta-merta'  => 'fa-check-circle',
+                    'informasi-dikecualikan' => 'fa-lock',
+                    'pengadaan-barang-jasa'  => 'fa-bullhorn',
+                ];
+
+                // Mapping slug ke deskripsi
+                $descs = [
+                    'informasi-berkala'      => 'Informasi publik yang diumumkan secara berkala',
+                    'informasi-setiap-saat'  => 'Informasi publik yang tersedia setiap saat',
+                    'informasi-serta-merta'  => 'Informasi penting yang diumumkan segera',
+                    'informasi-dikecualikan' => 'Informasi yang tidak dapat dipublikasikan',
+                    'pengadaan-barang-jasa'  => 'Informasi pengadaan barang dan jasa',
+                ];
+            ?>
+
             <div class="ppid-card-grid">
-                <a href="{{ url('ppid_bapenda/informasi-berkala') }}" class="ppid-card">
+                @foreach($kategoris as $kategori)
+                <a href="{{ url('ppid_bapenda/' . $kategori->slug) }}" class="ppid-card">
                     <div class="ppid-card-icon">
-                        <i class="fa fa-list-alt"></i>
+                        <i class="fa {{ $icons[$kategori->slug] ?? 'fa-file' }}"></i>
                     </div>
-                    <div class="ppid-card-title">Informasi Berkala</div>
-                    <div class="ppid-card-desc">Informasi publik yang diumumkan secara berkala</div>
+                    <div class="ppid-card-title">{{ $kategori->nama_kategori }}</div>
+                    <div class="ppid-card-desc">{{ $descs[$kategori->slug] ?? '' }}</div>
                 </a>
-
-                <!-- INFORMASI SETIAP SAAT -->
-                <a href="{{ url('ppid_bapenda/informasi-setiap-saat') }}" class="ppid-card">
-                    <div class="ppid-card-icon">
-                        <i class="fa fa-calendar"></i>
-                    </div>
-                    <div class="ppid-card-title">Informasi Setiap Saat</div>
-                    <div class="ppid-card-desc">Informasi publik yang tersedia setiap saat</div>
-                </a>
-
-                <!-- INFORMASI SERTA MERTA -->
-                <a href="{{ url('ppid_bapenda/informasi-serta-merta') }}" class="ppid-card">
-                    <div class="ppid-card-icon">
-                        <i class="fa fa-check-circle"></i>
-                    </div>
-                    <div class="ppid-card-title">Informasi Serta Merta</div>
-                    <div class="ppid-card-desc">Informasi penting yang diumumkan segera</div>
-                </a>
-
-                <!-- INFORMASI DIKECUALIKAN -->
-                <a href="{{ url('ppid_bapenda/informasi-dikecualikan') }}" class="ppid-card">
-                    <div class="ppid-card-icon">
-                        <i class="fa fa-lock"></i>
-                    </div>
-                    <div class="ppid-card-title">Informasi Dikecualikan</div>
-                    <div class="ppid-card-desc">Informasi yang tidak dapat dipublikasikan</div>
-                </a>
-
-                 {{-- ===== PENGADAAN BARANG DAN JASA ===== --}}
-                <!-- <a href="{{ url('ppid_bapenda/pengadaan-barang-jasa') }}" class="ppid-card"> 
-                    <div class="ppid-card-icon">
-                        <i class="fa fa-bullhorn"></i>
-                    </div>
-                    <div class="ppid-card-title">Pengadaan Barang/Jasa</div>
-                    <div class="ppid-card-desc">Informasi pengadaan barang dan jasa</div>
-                </a>-->
+                @endforeach
             </div>
+
         </div>
         {{-- ===== END BUTTON KATEGORI ===== --}}
         

@@ -311,3 +311,6 @@ Route::prefix('admin/ppid/kategori')->name('admin.ppid.kategori.')->group(functi
 Route::get('/ppid_bapenda/{slug}', [PublicKategoriController::class, 'show'])
     ->name('ppid.kategori.show');
  
+    // untuk toggle aktif atau nonaktif kategori pada ADMIN PAGE
+Route::patch('admin/ppid/kategori/{id}/toggle', [KategoriController::class, 'toggle'])
+     ->name('admin.ppid.kategori.toggle');

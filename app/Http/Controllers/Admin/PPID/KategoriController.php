@@ -8,6 +8,7 @@ use App\Models\PpidSubKategori;
 use App\Models\PpidKonten;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB; 
 
 class KategoriController extends Controller
 {
@@ -204,5 +205,16 @@ class KategoriController extends Controller
             ->get(['id', 'nama_sub_kategori']);
 
         return response()->json($subKategoris);
+    }
+
+    public function toggle($id)
+    {
+        $kategori = DB::table('ppid_kategori')->where('id', $id)->first();
+
+        DB::table('ppid_kategori')
+            ->where('id', $id)
+            ->update(['is_active' => $kategori->is_active ? 0 : 1]);
+
+        return redirect()->back()->with('success', 'Status kategori berhasil diubah.');
     }
 }
