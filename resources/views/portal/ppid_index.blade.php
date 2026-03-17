@@ -1,3 +1,4 @@
+<!-- Header -->
 {{View::make('portal.ppid_header')}}
 
 <br>
@@ -33,13 +34,14 @@
         @endif
 
         {{-- ===== BUTTON KATEGORI INFORMASI ===== --}}
-        <div class="col-xs-12" style="margin: 30px 0;">
+        <div class="col-xs-12" style="margin: 20px 0 20px 0;">   {{-- mengatur ketinggian box --}}
             <style>
                 .ppid-card-grid {
                     display: flex;
                     flex-wrap: wrap;
-                    gap: 16px;
+                    gap: 20px;                               
                     justify-content: center;
+                    padding: 10px 0 20px 0;                 
                 }
                 .ppid-card {
                     background: #ffffff;
@@ -91,6 +93,7 @@
                 }
             </style>
 
+            <!-- INFORMASI BERKALA -->
             <div class="ppid-card-grid">
                 <a href="{{ url('ppid_bapenda/informasi-berkala') }}" class="ppid-card">
                     <div class="ppid-card-icon">
@@ -100,6 +103,7 @@
                     <div class="ppid-card-desc">Informasi publik yang diumumkan secara berkala</div>
                 </a>
 
+                <!-- INFORMASI SETIAP SAAT -->
                 <a href="{{ url('ppid_bapenda/informasi-setiap-saat') }}" class="ppid-card">
                     <div class="ppid-card-icon">
                         <i class="fa fa-calendar"></i>
@@ -108,6 +112,7 @@
                     <div class="ppid-card-desc">Informasi publik yang tersedia setiap saat</div>
                 </a>
 
+                <!-- INFORMASI SERTA MERTA -->
                 <a href="{{ url('ppid_bapenda/informasi-serta-merta') }}" class="ppid-card">
                     <div class="ppid-card-icon">
                         <i class="fa fa-check-circle"></i>
@@ -116,6 +121,7 @@
                     <div class="ppid-card-desc">Informasi penting yang diumumkan segera</div>
                 </a>
 
+                <!-- INFORMASI DIKECUALIKAN -->
                 <a href="{{ url('ppid_bapenda/informasi-dikecualikan') }}" class="ppid-card">
                     <div class="ppid-card-icon">
                         <i class="fa fa-lock"></i>
@@ -124,14 +130,15 @@
                     <div class="ppid-card-desc">Informasi yang tidak dapat dipublikasikan</div>
                 </a>
 
-                <!--<a href="{{ url('ppid_bapenda/pengadaan-barang-jasa') }}" class="ppid-card">
-                     <div class="ppid-card-icon"> 
+                 {{-- ===== PENGADAAN BARANG DAN JASA ===== --}}
+                <!-- <a href="{{ url('ppid_bapenda/pengadaan-barang-jasa') }}" class="ppid-card"> 
+                    <div class="ppid-card-icon">
                         <i class="fa fa-bullhorn"></i>
                     </div>
                     <div class="ppid-card-title">Pengadaan Barang/Jasa</div>
                     <div class="ppid-card-desc">Informasi pengadaan barang dan jasa</div>
-                </a>
-            </div>-->
+                </a>-->
+            </div>
         </div>
         {{-- ===== END BUTTON KATEGORI ===== --}}
         
@@ -155,4 +162,5 @@
     }
 </script>
 
+<!-- Footer page -->
 {{View::make('portal.ppid_footer')}}
