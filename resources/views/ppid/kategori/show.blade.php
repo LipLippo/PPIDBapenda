@@ -223,12 +223,13 @@
     }
 
     .sec-head {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 22px;
-        background: linear-gradient(90deg, #f8fafc 0%, #fff 100%);
-        border-bottom: 1px solid var(--gray-100);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    background: linear-gradient(90deg, #f8fafc 0%, #fff 100%);
+    border-bottom: 1px solid var(--gray-100);
+    overflow: hidden;
     }
 
     .sec-num {
@@ -246,10 +247,13 @@
     }
 
     .sec-title {
-        font-size: 16px !important;
-        font-weight: 700;
-        color: var(--navy) !important;
-        flex: 1;
+    font-size: 16px !important;
+    font-weight: 700;
+    color: var(--navy) !important;
+    flex: 1;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
     }
 
     .sec-cnt {
@@ -288,13 +292,16 @@
     }
 
     .doc-name {
-        font-size: 15px !important;
-        color: var(--gray-700) !important;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
+    font-size: 15px !important;
+    color: var(--gray-700) !important;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
 
     .doc-name::before {
         content: '';
